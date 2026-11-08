@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   PRECEDENT — Editorial Design System
+   Warm Ivory (Light) × Obsidian Nocturnal (Dark)
+   ============================================================ */
+
+:root {
+  color-scheme: light dark;
+}
+
+/* ==============================
+   LIGHT MODE BASE
+   ============================== */
+html {
+  background-color: #E8E3D6;
+  color: #18180F;
+}
+
+body {
+  margin: 0;
+  background-color: #E8E3D6;
+  color: #18180F;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* ==============================
+   DARK MODE BASE
+   ============================== */
+html.dark,
+html.dark body,
+body.dark {
+  background-color: #0C0D0A !important;
+  color: #EDE8DC !important;
+}
+
+/* ==============================
+   HEADINGS — LIGHT MODE
+   HIGHEST priority: !important after all utilities
+   ============================== */
+h1, h2, h3, h4, h5, h6,
+.font-serif {
+  font-family: 'Newsreader', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Light mode heading color — extremely high specificity */
+html:not(.dark) h1,
+html:not(.dark) h2,
+html:not(.dark) h3,
+html:not(.dark) h4,
+html:not(.dark) h5,
+html:not(.dark) h6,
+html:not(.dark) .font-serif {
+  color: #0A0A07 !important;
+}
+
+/* Dark mode heading color */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6,
+html.dark .font-serif,
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark .font-serif {
+  color: #F5F0E8 !important;
+}
+
+/* ==============================
+   SECONDARY TEXT — LIGHT MODE
+   Must be readable: target only stone-colored text
+   ============================== */
+html:not(.dark) .text-stone-600 { color: #2E2E26 !important; }
+html:not(.dark) .text-stone-500 { color: #3E3E36 !important; }
+html:not(.dark) .text-stone-400 { color: #4E4E46 !important; }
+html:not(.dark) .text-stone-300 { color: #5E5E56 !important; }
+
+/* ==============================
+   SECONDARY TEXT — DARK MODE
+   Bright enough to read on #0C0D0A
+   ============================== */
+html.dark .text-stone-600,
+html.dark .dark\:text-stone-600 { color: #A0A090 !important; }
+
+html.dark .text-stone-500,
+html.dark .dark\:text-stone-500 { color: #B4B4A4 !important; }
+
+html.dark .text-stone-400,
+html.dark .dark\:text-stone-400 { color: #C8C8B8 !important; }
+
+html.dark .text-stone-300,
+html.dark .dark\:text-stone-300 { color: #DCDCCC !important; }
+
+/* ==============================
+   PRIMARY TEXT — DARK MODE
+   ============================== */
+html.dark .dark\:text-ivory-100 { color: #EDE8DC !important; }
+html.dark .dark\:text-ivory-50  { color: #F5F0E8 !important; }
+html.dark .dark\:text-ink-900   { color: #EDE8DC !important; }
+
+/* ==============================
+   SURFACES — DARK MODE
+   ============================== */
+html.dark .dark\:bg-obsidian-500 { background-color: #0C0D0A !important; }
+html.dark .dark\:bg-obsidian-400 { background-color: #14160F !important; }
+html.dark .dark\:bg-obsidian-300 { background-color: #1C1E17 !important; }
+html.dark .dark\:bg-obsidian-200 { background-color: #24271E !important; }
+
+/* ==============================
+   BORDERS — DARK MODE
+   ============================== */
+html.dark .dark\:border-stone-800 { border-color: #2A2D22 !important; }
+html.dark .dark\:border-stone-700 { border-color: #363A2C !important; }
+
+/* ==============================
+   SURFACES — LIGHT MODE
+   Clear white cards on warm canvas
+   ============================== */
+html:not(.dark) .bg-ivory-50  { background-color: #FAFAF7 !important; }
+html:not(.dark) .bg-ivory-100 { background-color: #F0EBE0 !important; }
+html:not(.dark) .bg-ivory-200 { background-color: #E0D9CB !important; }
+
+/* ==============================
+   EDITORIAL SCROLLBARS
+   ============================== */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #E0D9CB; }
+html.dark ::-webkit-scrollbar-track { background: #14160F; }
+::-webkit-scrollbar-thumb { background: #BEB8A8; }
+html.dark ::-webkit-scrollbar-thumb { background: #2A2D22; }
+::-webkit-scrollbar-thumb:hover { background: #8A8878; }
+html.dark ::-webkit-scrollbar-thumb:hover { background: #3A3D30; }
+
+/* ==============================
+   TRANSITIONS
+   ============================== */
+html, body, aside, header, main, footer, section,
+div, button, a, span, input, select, textarea {
+  transition-property: color, background-color, border-color;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==============================
+   PRINT
+   ============================== */
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  aside, header, nav, footer, button { display: none !important; }
+}
