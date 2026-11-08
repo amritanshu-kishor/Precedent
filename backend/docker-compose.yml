@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: precedent
+      POSTGRES_USER: precedent
+      POSTGRES_PASSWORD: precedent_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - precedent_pgdata:/var/lib/postgresql/data
+  api:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg://precedent:precedent_dev_password@db:5432/precedent
+      CORS_ORIGINS: http://localhost:3000
+      MEMORY_MODE: mock
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+volumes:
+  precedent_pgdata:
